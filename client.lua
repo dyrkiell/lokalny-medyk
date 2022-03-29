@@ -48,7 +48,7 @@ Citizen.CreateThread(function()
                         if (GetEntityHealth(PlayerPedId()) < 200) then
 							TaskStartScenarioInPlace(ped, "WORLD_HUMAN_CLIPBOARD", 0, false)
 							DisableAllControlActions(0)
-							exports['verti_taskbar']:taskBar(1000, 'Czekasz w kolejce.', true, false)
+							exports['verti_taskbar']:taskBar(5000, 'Czekasz w kolejce.', true, false)
 
 							EnableControlAction(1, 154)	
 							ESX.TriggerServerCallback('esx_baska:kupLeczenie', function(bought)
@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
 									ESX.ShowNotification('Doktor sie tobą zajmuje, poczekaj chwile!')
 									SetEntityCoords(ped, v.lozko[i].x, v.lozko[i].y, v.lozko[i].z, v.lozko[i].h)
 									FreezeEntityPosition(ped, true)
-									exports['verti_taskbar']:taskBar(1000, 'Trwa Leczenie', true, false)
+									exports['verti_taskbar']:taskBar(20000, 'Trwa Leczenie', true, false)
 										if not status then
 
 											ESX.ShowNotification('Twoje leczenie zakończyło się ~g~pozytywnie~w~!')
