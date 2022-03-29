@@ -1,4 +1,4 @@
-###DO ZMIANY MIEJSCE BASKI W CONFIGU!!!
+### DO ZMIANY MIEJSCE BASKI W CONFIGU!!!
 
 ## dyrkiel_lokalnymedyk
 
