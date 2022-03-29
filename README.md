@@ -1,3 +1,5 @@
+###DO ZMIANY MIEJSCE BASKI W CONFIGU!!!
+
 ## dyrkiel_lokalnymedyk
 
 **- KORDY**
