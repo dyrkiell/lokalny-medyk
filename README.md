@@ -1,30 +1,13 @@
 ### DO ZMIANY MIEJSCE BASKI W CONFIGU!!!
 
+### NEXT UPDATE : Config pod wiele kordow : p
+
 ## dyrkiel_lokalnymedyk
 
 **- KORDY**
 **- LOGI**
 **- CENA**
 **W PLIKU baska_config.lua**
-
-ABY DODAC KOLEJNA BASKE I NAPIS ROBICIE TAK:
-
-Config.KordyBasia = {
-    Ped =    {
-    baska = {
-{x = 394.5199890136719, y = -584.8300170898438, z = 28.76000022888183-0.90, name = 'ped', h = 249.41, sprite = 51,    color = 59},
-{x = 394.5199890136719, y = -584.8300170898438, z = 28.76000022888183-0.90, name = 'ped', h = 249.41, sprite = 51,    color = 59}
-},
-    lozko = {
-{x = 351.57, y = -595.28, z = 28.73, h = 62.21},
-{x = 351.57, y = -595.28, z = 28.73, h = 62.21}
-},
-    napis = {
-{x = 394.5199890136719, y = -584.8300170898438, z = 28.76000022888183, h = 28.8}
-{x = 394.5199890136719, y = -584.8300170898438, z = 28.76000022888183, h = 28.8}
-,} 
-}
-}
 
 # DO ZMIANY EXPORT PROGRESS BARA W CLIENT.LUA
 
