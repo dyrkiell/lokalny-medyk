@@ -11,5 +11,3 @@ Config.KordyBasia = {
 
 Config.Baskalogi = '' -- tutaj wklej link do weebhooka
 Config.Avatarwebhoka = 'https://cdn.discordapp.com/attachments/957633962988163122/958399135789232198/OIP.png' -- link do zdjecia profilowego webhooka default pomarancza XD
-
-Config.cenaLeczenia = '1000' -- cena za baske
