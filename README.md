@@ -6,8 +6,9 @@
 
 **- KORDY**
 **- LOGI**
-**- CENA**
 **W PLIKU baska_config.lua**
+
+### Cena baski server.lua
 
 # DO ZMIANY EXPORT PROGRESS BARA W CLIENT.LUA
 
