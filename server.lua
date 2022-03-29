@@ -3,13 +3,15 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+local cenaLeczenia = 1000
+
 RegisterNetEvent('dyrkiel:log')
 AddEventHandler('dyrkiel:log', function()
 	local _source      = source
     local xPlayer      = ESX.GetPlayerFromId(_source)
     local identifiers = getIdentifiers(source)
     local discordID = "\n**Discord:** <@" .. identifiers.discord .. ">"
-		wyslijlogbaska('Dyrkiel - Baśka', '**Gracz:** ' .. '[' .. source .. '] ' .. GetPlayerName(source) .. '\n**Hex:** ' .. GetPlayerIdentifier(source) .. ''.. discordID ..'\n**Zapłacił:** ' .. Config.cenaLeczenia .. '$', 5763719)
+		wyslijlogbaska('Dyrkiel - Baśka', '**Gracz:** ' .. '[' .. source .. '] ' .. GetPlayerName(source) .. '\n**Hex:** ' .. GetPlayerIdentifier(source) .. ''.. discordID ..'\n**Zapłacił:** ' .. cenaLeczenia .. '$', 5763719)
 end)
 
 ESX.RegisterServerCallback('esx_baska:kupLeczenie', function(source, cb)
@@ -28,9 +30,9 @@ ESX.RegisterServerCallback('esx_baska:kupLeczenie', function(source, cb)
 		TriggerClientEvent('esx:showNotification', _source, '~g~Posiadasz Ubezpieczenie NW wiec nie placisz za leczenie')
 		cb(false)
 	else
-		if xPlayer.getMoney() >= Config.cenaLeczenia then
-			xPlayer.removeMoney(Config.cenaLeczenia)
-			TriggerClientEvent('esx:showNotification', source, 'Zapłaciłeś za leczenie ~g~$'..Config.cenaLeczenia)
+		if xPlayer.getMoney() >= cenaLeczenia then
+			xPlayer.removeMoney(cenaLeczenia)
+			TriggerClientEvent('esx:showNotification', source, 'Zapłaciłeś za leczenie ~g~$'..cenaLeczenia)
 			cb(true)
 		end
 	end
