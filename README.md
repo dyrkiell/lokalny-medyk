@@ -1,7 +1,5 @@
 ### DO ZMIANY MIEJSCE BASKI W CONFIGU!!!
 
-### NEXT UPDATE : Config pod wiele kordow : p
-
 ## dyrkiel_lokalnymedyk
 
 **- KORDY**
