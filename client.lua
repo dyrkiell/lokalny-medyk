@@ -12,27 +12,6 @@ local IsDead				  = false
 local cam = nil
 
 Citizen.CreateThread(function()
-
-    RequestModel(GetHashKey("s_m_m_doctor_01"))
-    while not HasModelLoaded(GetHashKey("s_m_m_doctor_01")) do
-      Wait(1)
-	  
-    end
-
-	for k,v in pairs(Config.KordyBasia) do
-		for i = 1, #v.baska, 1 do
-			local hospitalped =  CreatePed(4, 0xd47303ac, v.baska[i].x, v.baska[i].y, v.baska[i].z-0.1, v.baska[i].h, false, true)
-			SetEntityHeading(hospitalped, v.baska[i].h)
-			FreezeEntityPosition(hospitalped, true)
-			SetEntityInvincible(hospitalped, true)
-
-			SetBlockingOfNonTemporaryEvents(hospitalped, true)
-		end
-	end
-	  
-end)
-
-Citizen.CreateThread(function()
     while true do
 		local ped = PlayerPedId()
         Citizen.Wait(1)
@@ -41,14 +20,16 @@ Citizen.CreateThread(function()
 			for i = 1, #v.napis, 1 do
 		local distance = #(vector3(v.napis[i].x, v.napis[i].y, v.napis[i].z) - kordypeda)
 		if distance < 10 then
+			DrawMarker(27, v.baska[i].x, v.baska[i].y, v.baska[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 2.0, 2.0, 2.0, 255, 105, 180, 200, false, true, 2, true, false, false, false)
+			ESX.ShowFloatingHelpNotification('~p~[E]~w~ ABY SIĘ ULECZYĆ KOSZT: 1000$', vector3(v.napis[i].x, v.napis[i].y, v.napis[i].z))
             if not IsPedInAnyVehicle(PlayerPedId(), true) then
 				if distance < 3 then
-					ESX.Game.Utils.DrawText3D(vector3(v.napis[i].x, v.napis[i].y, v.napis[i].z), 'NACIŚNIJ [~g~E~s~] ABY SIĘ ULECZYĆ KOSZT: 1000$', 0.4)
+					ESX.ShowHelpNotification('~y~Naciśnij ~INPUT_CONTEXT~ aby się uleczyć.')
                     if IsControlJustReleased(0, 46) then
                         if (GetEntityHealth(PlayerPedId()) < 200) then
 							TaskStartScenarioInPlace(ped, "WORLD_HUMAN_CLIPBOARD", 0, false)
 							DisableAllControlActions(0)
-							exports['verti_taskbar']:taskBar(5000, 'Czekasz w kolejce.', true, false)
+							exports['verti_taskbar']:taskBar(1000, 'Czekasz w kolejce.', true, false)
 
 							EnableControlAction(1, 154)	
 							ESX.TriggerServerCallback('esx_baska:kupLeczenie', function(bought)
@@ -57,8 +38,9 @@ Citizen.CreateThread(function()
 
 									ESX.ShowNotification('Doktor sie tobą zajmuje, poczekaj chwile!')
 									SetEntityCoords(ped, v.lozko[i].x, v.lozko[i].y, v.lozko[i].z, v.lozko[i].h)
+									TaskPlayAnim(playerPed, 'idle_c', 'amb@world_human_clipboard@male@idle_a', 8.0, -8.0, -1, 1, 0, 0, 0, 0)
 									FreezeEntityPosition(ped, true)
-									exports['verti_taskbar']:taskBar(20000, 'Trwa Leczenie', true, false)
+									exports['verti_taskbar']:taskBar(1000, 'Trwa Leczenie', true, false)
 										if not status then
 
 											ESX.ShowNotification('Twoje leczenie zakończyło się ~g~pozytywnie~w~!')
@@ -69,7 +51,7 @@ Citizen.CreateThread(function()
 										end
 
 								else
-									ESX.ShowNotification('Potrzebujesz ~r~'..Config.cenaLeczenia.. '$~w~ aby ukończyć leczenie!')
+									ESX.ShowNotification('Potrzebujesz ~r~1000$~w~ aby ukończyć leczenie!')
 
 								end
 							end)	
