@@ -38,9 +38,9 @@ Citizen.CreateThread(function()
 
 									ESX.ShowNotification('Doktor sie tobą zajmuje, poczekaj chwile!')
 									SetEntityCoords(ped, v.lozko[i].x, v.lozko[i].y, v.lozko[i].z, v.lozko[i].h)
-									TaskPlayAnim(playerPed, 'idle_c', 'amb@world_human_clipboard@male@idle_a', 8.0, -8.0, -1, 1, 0, 0, 0, 0)
+									ExecuteCommand("e lezenie")
 									FreezeEntityPosition(ped, true)
-									exports['verti_taskbar']:taskBar(1000, 'Trwa Leczenie', true, false)
+									exports['verti_taskbar']:taskBar(10000, 'Trwa Leczenie', true, false)
 										if not status then
 
 											ESX.ShowNotification('Twoje leczenie zakończyło się ~g~pozytywnie~w~!')
